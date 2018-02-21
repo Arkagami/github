@@ -1,0 +1,133 @@
+cd /home/mixno/pintos/src/userprog
+make
+
+cd build
+
+rm -f tests/userprog/halt.output
+rm -f tests/userprog/exit.output
+rm -f tests/userprog/exec-once.output
+rm -f tests/userprog/exec-multiple.output
+rm -f tests/userprog/exec-arg.output
+rm -f tests/userprog/exec-missing.output
+rm -f tests/userprog/exec-bad-ptr.output
+rm -f tests/userprog/wait-simple.output
+rm -f tests/userprog/wait-twice.output
+rm -f tests/userprog/wait-killed.output
+rm -f tests/userprog/wait-bad-pid.output
+rm -f tests/userprog/create-empty.output
+rm -f tests/userprog/create-long.output
+rm -f tests/userprog/create-normal.output
+rm -f tests/userprog/create-exists.output
+rm -f tests/userprog/create-null.output
+rm -f tests/userprog/create-bad-ptr.output
+rm -f tests/userprog/create-bound.output
+rm -f tests/userprog/open-missing.output
+rm -f tests/userprog/open-normal.output
+rm -f tests/userprog/open-twice.output
+rm -f tests/userprog/open-boundary.output
+rm -f tests/userprog/open-empty.output
+rm -f tests/userprog/open-null.output
+rm -f tests/userprog/open-bad-ptr.output
+rm -f tests/userprog/close-normal.output
+rm -f tests/userprog/close-twice.output
+rm -f tests/userprog/close-stdout.output
+rm -f tests/userprog/close-bad-fd.output
+rm -f tests/userprog/read-normal.output
+rm -f tests/userprog/read-zero.output
+rm -f tests/userprog/read-bad-ptr.output
+rm -f tests/userprog/read-boundary.output
+rm -f tests/userprog/read-stdout.output
+rm -f tests/userprog/read-bad-fd.output
+rm -f tests/userprog/write-normal.output
+rm -f tests/userprog/write-zero.output
+rm -f tests/userprog/write-bad-ptr.output
+rm -f tests/userprog/write-boundary.output
+rm -f tests/userprog/write-stdin.output
+rm -f tests/userprog/write-bad-fd.output
+
+
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/halt.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exit.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exec-once.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exec-multiple.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exec-arg.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exec-missing.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/exec-bad-ptr.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/wait-simple.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/wait-twice.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/wait-killed.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/wait-bad-pid.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-empty.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-long.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-normal.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-exists.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-null.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-bad-ptr.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/create-bound.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-missing.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-normal.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-twice.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-boundary.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-empty.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-null.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/open-bad-ptr.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/close-normal.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/close-twice.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/close-stdout.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/close-bad-fd.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-normal.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-zero.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-bad-ptr.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-boundary.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-stdout.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/read-bad-fd.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-normal.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-zero.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-bad-ptr.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-boundary.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-stdin.result
+echo "----------------------------------------------------------------------------\n"
+make tests/userprog/write-bad-fd.result
+echo "----------------------------------------------------------------------------\n"
+
+cd /home/mixno/
