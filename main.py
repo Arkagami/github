@@ -22,60 +22,8 @@ quiz_channel = 0
 quiz = 0
 quiz_number = -1
 quiz_numbers = -1
-set_answer = [' '
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ',
-              ' ']
+set_answer = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+
 question = ['1) https://sun9-6.userapi.com/c840724/v840724591/74499/x8hB5rkgIkU.jpg',
             '2) https://pp.userapi.com/c846320/v846320591/23582/SClHqmmWE0Y.jpg',
             '3) https://pp.userapi.com/c834100/v834100591/116733/OuwBfc0GKwc.jpg',
@@ -104,6 +52,7 @@ question = ['1) https://sun9-6.userapi.com/c840724/v840724591/74499/x8hB5rkgIkU.
             '26) https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIuyzrQBascnms3B1vOeTJF6NHfQYIw4HlJZMdt9KsHtKVe64Jfw',
             '27) http://nisamerica.com/lovelive/images/screenshots/9.jpg',
             '28) https://pbs.twimg.com/media/C9xjyVFXkAIiyhs.jpg']
+
 quiz_answer = [['врата штейна', 'врата штайнера'],
           ['сегодняшний ужин для эмии', 'сегодняшнее меню для эмии'],
           ['проект воспитания девочек-волшебниц'],
@@ -144,6 +93,7 @@ while line1:
     line1 = f.readline()
     line2 = str(f.readline())
     print(str((c // 2) + 1) + ')' + channel_list[c][:-1] + ' ' + channel_list[c + 1][:-1])
+    #await client.send_message(client.get_channel('43569861995842766'), str((c // 2) + 1) + ')' + str(channel_list[c][:-1]) + ' ' + str(channel_list[c + 1][:-1]))
     c = c + 2
 f.close()
 #print(len(channel_list))
@@ -152,12 +102,18 @@ f.close()
 async def on_ready():
     print('Logged in as')
     print(client.user.name)
+    #await client.send_message(client.get_channel('43569861995842766'), client.user.name)
     print(client.user.id)
+    #await client.send_message(client.get_channel('43569861995842766'), client.user.id)
     print('------')
+    #await client.send_message(client.get_channel('43569861995842766'), '------')
 
 @client.event
 async def on_message(message):
     print('<' + message.channel.name + '>[' + message.author.name + '|' + message.author.id + ']' + message.content)
+
+    #await client.send_message(client.get_channel('43569861995842766'), '<' + message.channel.name + '>[' + message.author.name + '|' + message.author.id + ']' + message.content + '\n```')
+
     global stops
     global save_channel
     global question
@@ -170,23 +126,27 @@ async def on_message(message):
 
     if message.content.startswith(prefix + 'btcprice'):
         print('---------[command]: btcprice ')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]: btcprice\n```')
         btc_price_usd, btc_price_rub = get_btc_price()
         await client.send_message(message.channel, 'USD: ' + str(btc_price_usd) + ' | RUB: ' + str(btc_price_rub))
         await client.delete_message(message)
 
     if '<@282660110545846272>' in message.content and message.author.id != '282660110545846272' and message.author.id != '434785638840008738':
         print('---------[command]:mention Coockie')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:mention Coockie\n```')
         await client.send_message(message.channel, 'Хватит ддосить моего Создателя!!!')
         await client.delete_message(message)
 
     if '<@175571075931963393>' in message.content:
         print('---------[command]:mention soya')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:mention soya\n```')
         await client.send_message(message.channel, ':sparkles::regional_indicator_s: :regional_indicator_o: :regional_indicator_y: :regional_indicator_a:      :regional_indicator_j: :regional_indicator_o: :regional_indicator_n: :regional_indicator_e: :regional_indicator_s::sparkles:')
         #await client.delete_message(message)
 
     if message.content.startswith(prefix + 'ddos'):
         if message.author.id in admin_list:
             print('---------[command]:!ddos ' + message.content[6:])
+            #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!ddos ' + message.content[6:] + '\n```')
             i = 0
             stops = 0
             while i < 30:
@@ -200,29 +160,34 @@ async def on_message(message):
 
     if (strcmp(message.content, prefix + 'stop') == 1):
         print('---------[command]:!stop')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!stop\n```')
         stops = 1
         await client.delete_message(message)
 
     if strcmp(message.content.lower(), 'печенюха') == 1 or strcmp(message.content.lower(), 'печенька') == 1:
         print('---------[command]:!coockie')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!coockie\n```')
         await client.send_message(message.channel, "О, я тоже хочу, поделитесь?:cookie:")
 
     if strcmp(message.content, prefix + 'hi') == 1:
         print('---------[command]:!hi')
-        await client.send_message(message.channel, ':sparkles:' + message.author.name + ' приветствует всех:sparkles:')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!hi')
+        await client.send_message(message.channel, ':sparkles:' + message.author.name + ' приветствует всех:sparkles:\n')
         await client.delete_message(message)
 
     if strcmp(message.content, prefix + 'gm') == 1:
         print('---------[command]:!gm')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!gm\n```')
         await client.send_message(message.channel, ':hugging:С добрым утречком:hugging:')
         await client.delete_message(message)
 
     if strcmp(message.content, prefix + 'help') == 1:
         print('---------[command]:!help')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!help\n```')
         await client.send_message(message.channel, '```css\n' +
                                                    '[Coockie help]\n\n' +
                                                    'Печенюха/печенька - Попросит вкуснях. Это две команды. Буквы могут быть любого размера.\nПишется без префикса.\n\n' +
-                                                   'Меншин Сони выдаст интересный набор смайликов))). Но не стоит слишком часто юзать эту функцию.\nГрозит перманентным баном по айди на доступ к этой команде.\n\n' +
+                                                   'Меншн Сони выдаст интересный набор смайликов))). Но не стоит слишком часто юзать эту функцию.\nГрозит перманентным баном по айди на доступ к этой команде.\n\n' +
                                                    '>say <текст> - Напишет ваше сообщение.\n\n' +
                                                    '>hi - Поприветствует всех от вашего имени.\n\n' +
                                                    '>gm - Охайё, т.е доброе утро)).\n\n' +
@@ -232,6 +197,7 @@ async def on_message(message):
 
     if strcmp(message.content, prefix + 'save') == 1 and message.author.id in admin_list:
         print('---------[command]:!save')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!save```')
         save_channel = message.channel
         f = open('channel_list', 'a')
         f.write(save_channel.name + '\n' + save_channel.id)
@@ -240,11 +206,13 @@ async def on_message(message):
 
     if message.content.startswith(prefix + 'say '):
         print('---------[command]:!say')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!say```')
         await client.send_message(message.channel, message.content[5:])
         await client.delete_message(message)
 
     if message.content.startswith(prefix + 'sayhim') and message.author.id in admin_list:
         print('---------[command]:!sayhim')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!sayhim```')
         await client.send_message(client.get_channel(channel_list[int(message.content[8]) * 2 - 1][:-1]), message.content[10:])
         await client.delete_message(message)
 
@@ -255,6 +223,7 @@ async def on_message(message):
 
     if strcmp(message.content, prefix + 'start quiz') == 1 and message.author.id in admin_list:
         print('---------[command]:!start quiz')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!start quiz\n```')
         quiz_channel = message.channel
         quiz = 1
         await client.send_message(message.channel, 'Викторина началась!')
@@ -262,6 +231,7 @@ async def on_message(message):
 
     if strcmp(message.content, prefix + 'stop quiz') == 1 and message.author.id in admin_list:
         print('---------[command]:!stop quiz')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!stop quiz\n```')
         quiz_channel = 0
         quiz = 0
         await client.send_message(message.channel, 'Викторина окончена))\n\nОгромное спасибо спонсорам сегодняшней викторины - Rumata и <@265474107666202634>')
@@ -271,11 +241,13 @@ async def on_message(message):
         quiz_number = int(message.content[6:]) - 1
         quiz_numbers = quiz_number
         print('---------[command]:!quiz ' + str(quiz_number))
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quiz ' + str(quiz_number) + '\n```')
         await client.send_message(quiz_channel, question[quiz_number])
         await client.delete_message(message)
 
     if message.content.startswith(prefix + 'quizans') and message.author.id in admin_list:
         print('---------[command]:!quizans ' + message.content[9:])
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quizans ' + message.content[9:] + '\n```')
         if quiz_number == -1:
             await client.send_message(quiz_channel, 'А что же произошло? Грац, вы нашли недоработку с нашей стороны, а раз так, то победил челик ниже:')
         set_answer[quiz_numbers] = str(quiz_numbers + 1) + ')' + message.content[9:]
@@ -284,15 +256,17 @@ async def on_message(message):
 
     if message.channel == quiz_channel and quiz == 1:
         print('---------[command]:!quiz answer - ' + message.content)
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quiz answer - ' + message.content + '\n```')
         if quiz_number != -1:
             if message.content.lower() in quiz_answer[quiz_number]:
-                set_answer[quiz_number] = str(quiz_number + 1) + ')' + message.author.id + ' ' + message.author.name
-                await client.send_message(quiz_channel, '<@' + message.author.id + '>, верно!')
-                quiz_number = -1
-        await client.delete_message(message)
+                if quiz_number != -1:
+                    quiz_number = -1
+                    set_answer[quiz_number] = str(quiz_number + 1) + ')' + message.author.id + ' ' + message.author.name
+                    await client.send_message(quiz_channel, '<@' + message.author.id + '>, верно!')
 
     if strcmp(message.content, prefix + 'quizstat') == 1 and message.author.id in admin_list:
         print('---------[command]:!quiz stat')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quiz stat\n```')
         ret = '```css'
         for s in set_answer:
             ret = ret + '\n' + s
@@ -302,6 +276,7 @@ async def on_message(message):
 
     if strcmp(message.content, prefix + 'quizquestions') == 1 and message.author.id in admin_list:
         print('---------[command]:!quizquestions')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quizquestions\n```')
         ret = '```css'
         for s in question:
             ret = ret + '\n' + s
@@ -311,6 +286,7 @@ async def on_message(message):
 
     if strcmp(message.content, prefix + 'quizanswers') == 1 and message.author.id in admin_list:
         print('---------[command]:!quizanswers')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!quizanswers\n```')
         ret = '```css'
         for s in quiz_answer:
             ret = ret + '\n' + s
@@ -320,6 +296,7 @@ async def on_message(message):
 
     if strcmp(message.content.lower(), 'соня') == 1:
         print('---------[command]:!sonya')
+        #await client.send_message(client.get_channel('43569861995842766'), '```css\n[command]:!sonya\n```')
         await client.send_message(message.channel, 'Соня лучшая!!!')
         await client.delete_message(message)
 
