@@ -472,8 +472,8 @@ async def on_message(message):
 			if (int(message.content[6:]) > int(cookie[c])):
 				await client.send_message(message.channel, '<@' + message.author.id+ '>'+ '' + ', у тебя нет столько:cookie: :(')
 			else:
-				#if (random.randint(0, 100) + 5) > 50:
-				if (random.random() == 1):
+				if (random.randint(0, 100) + 7) > 50:
+				#if (random.random() == 1):
 					cookie[c] = str(int(cookie[c]) + int(message.content[6:]))
 					f = open('cookie', 'w')
 					c = 0
@@ -481,7 +481,7 @@ async def on_message(message):
 						f.write(names[c] + '\n' + s + "\n")
 						c = c + 1
 					f.close()
-					await client.send_message(message.channel, '<@' + message.author.id+ '>'+ '' + ', ты выиграл ' + str(int(message.content[6:])) + ':cookie:')
+					await client.send_message(message.channel, '<@' + message.author.id+ '>, ты выиграл ' + str(int(message.content[6:])) + ':cookie:')
 				else:
 					cookie[c] = str(int(cookie[c]) - int(message.content[6:]))
 					f = open('cookie', 'w')
@@ -490,9 +490,9 @@ async def on_message(message):
 						f.write(names[c] + '\n' + s + "\n")
 						c = c + 1
 					f.close()
-					await client.send_message(message.channel, '<@' + message.author.id+ '>'+ ', ты проиграл ' + (message.content[6:]) + ':cookie:')                    
+					await client.send_message(message.channel, '<@' + message.author.id+ '>, ты проиграл ' + (message.content[6:]) + ':cookie:')
 		else:
-			await client.send_message(message.channel, '<@' + message.author.id+ '>'+ '' + ', у тебя нет:cookie: :(')
+			await client.send_message(message.channel, '<@' + message.author.id+ '>, у тебя нет:cookie: :(')
 		await client.delete_message(message)
 #--------------------------------------------------------------------------------------------------------------------------------------------------------
 	if strcmp(message.content.lower(), prefix + 'cookie update'):
@@ -527,7 +527,7 @@ async def on_message(message):
 			if not params[2].isdigit():
 				await client.send_message(message.channel, '```css\nError!!! Введенное значение не является числом\nExample: ' + prefix + 'give <someone> 500\n```')
 			elif (int(params[2]) > int(cookie[k])):
-				await client.send_message(message.channel, '<@' + message.author.id+ '>'+ '' + ', у тебя нет столько:cookie: :(')
+				await client.send_message(message.channel, '<@' + message.author.id+ '>, у тебя нет столько:cookie: :(')
 			else:
 				cookie[c] = str(int(cookie[c]) + int(params[2]))
 				cookie[k] = str(int(cookie[k]) - int(params[2]))
@@ -537,7 +537,7 @@ async def on_message(message):
 					f.write(names[c] + '\n' + s + "\n")
 					c = c + 1
 				f.close()
-				await client.send_message(message.channel, '<@' + message.author.id+ '>'+ '' + ', подарил ' + params[1] + ' ' + params[2] + ':cookie:')       
+				await client.send_message(message.channel, '<@' + message.author.id+ '>, подарил ' + params[1] + ' ' + params[2] + ':cookie:')
 		else:
 			await client.send_message(message.channel, 'Нет такого пользователя :(')
 		await client.delete_message(message)
